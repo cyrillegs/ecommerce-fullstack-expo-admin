@@ -1,0 +1,16 @@
+Backend
+-------
+npm init -y
+npm install express dotenv
+npm install nodemon
+
+Admin
+-----
+npm create vite@latest .
+
+Mobile
+------
+npx create-expo-app@latest .
+rm -rf .git
+ctrl + shift P then select Developer: Reload Window
+git init on the main folder
