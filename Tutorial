@@ -3,6 +3,14 @@ Backend
 npm init -y
 npm install express dotenv
 npm install nodemon
+https://clerk.com/docs/expressjs/getting-started/quickstart
+npm install @clerk/express
+npm install cloudinary@2.8.0
+
+MongoDB
+-------
+Security > Database & Network Access > IP Access List > Allow Access From Anywhere
+npm install mongoose@8.19.3
 
 Admin
 -----
