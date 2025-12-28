@@ -1,13 +1,24 @@
 import express from "express";
-import dotenv from "dotenv";
-dotenv.config();
+import path from "path";
+import { ENV } from "./config/env.js";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "Server is running!" });
+const __dirname = path.resolve();
+
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ message: "Success" });
 });
 
-app.listen(process.env.PORT, () =>
+// make our app ready for deployment
+if (ENV.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../admin")));
+
+  app.get("/{*any}", (req, res) => {
+    res.sendFile(path.join(__dirname, "../admin", "dist", "index.html"));
+  });
+}
+
+app.listen(ENV.PORT, () =>
   console.log("Server is up and running on port: " + process.env.PORT)
 );

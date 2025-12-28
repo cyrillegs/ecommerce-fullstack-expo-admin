@@ -1,0 +1,25 @@
+{
+  "name": "expo-ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix admin && npm run build --prefix admin",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrillegs/ecommerce-fullstack-expo-admin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cyrillegs/ecommerce-fullstack-expo-admin/issues"
+  },
+  "homepage": "https://github.com/cyrillegs/ecommerce-fullstack-expo-admin#readme"
+}
