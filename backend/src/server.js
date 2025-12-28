@@ -23,7 +23,21 @@ if (ENV.NODE_ENV === "production") {
   });
 }
 
-app.listen(ENV.PORT, () => {
-  console.log("Server is up and running on port: " + ENV.PORT);
-  connectDB();
-});
+// app.listen(ENV.PORT, () => {
+// console.log("Server is up and running on port: " + ENV.PORT);
+// connectDB();
+// });
+
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(ENV.PORT, () => {
+      console.log("Server is up and running on port: " + ENV.PORT);
+    });
+  } catch (error) {
+    console.error("Failed to start server", error);
+    process.exit(1);
+  }
+};
+
+startServer();
