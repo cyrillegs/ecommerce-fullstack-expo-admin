@@ -1,11 +1,16 @@
-Tech Stack  =   11:30
-Code Rabbit =   13:09
-Start       =   15:05
-backend     =   16:45
-admin       =   22:28
-github repo =   25:20
-Sevalla     =   30:25
-MongoDB     =   54:45
-Clerk       = 1:02:20
-INNGEST     = 1:07:15
-Cloudinary  = 1:09:20
+Tech Stack             =   11:30
+Code Rabbit            =   13:09
+Start                  =   15:05
+backend                =   16:45
+admin                  =   22:28
+github repo            =   25:20
+Sevalla                =   30:25
+MongoDB                =   54:45
+Clerk                  = 1:02:20
+INNGEST                = 1:07:15
+Cloudinary             = 1:09:20
+Reset admin            = 1:20:00
+Edit main.jsx on admin = 1:22:30
+
+
+1:40
