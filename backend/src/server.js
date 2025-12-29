@@ -13,7 +13,7 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(clerkMiddleware()); // adds auth object under the req/request, => req.auth
 
-app.use("/api/ingest", serve({ client: inngest, functions }));
+app.use("/api/inngest", serve({ client: inngest, functions }));
 
 // A simple health check endpoint
 app.get("/api/health", (req, res) => {

@@ -1,5 +1,4 @@
 import { Inngest } from "inngest";
-import { connectDB } from "./db.js";
 import { User } from "../models/user.model.js";
 
 export const inngest = new Inngest({ id: "ecommerce-app" });
@@ -34,9 +33,16 @@ const deleteUserFromDB = inngest.createFunction(
   { id: "delete-user-from-db" },
   { event: "clerk/user.deleted" },
   async ({ event }) => {
-    await User.deleteOne({ clerkId: id });
     try {
-      const { id } = event.data;
+      // Optional: await connectDB(); if your environment needs it
+
+      const { id } = event.data; // ✅ Clerk User ID
+
+      if (!id) {
+        console.warn("No Clerk User ID provided in the event:", event);
+        return;
+      }
+
       const result = await User.deleteOne({ clerkId: id });
 
       if (result.deletedCount === 0) {
@@ -45,8 +51,8 @@ const deleteUserFromDB = inngest.createFunction(
         console.log(`User deleted from DB: ${id}`);
       }
     } catch (error) {
-      console.error(`Failed to delete user ${event.data.id}: `, error);
-      throw error; // Re-throw to let Inngest handle retries if needed
+      console.error(`Failed to delete user ${event.data.id}:`, error);
+      throw error; // let Inngest handle retries
     }
   }
 );
